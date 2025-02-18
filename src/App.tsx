@@ -6,52 +6,24 @@ import { v4 as uuidv4 } from "uuid";
 import ResponseOptionManagement from "./components/ResponseOptionManagement";
 import { ConferenceDataP } from "./types/ConferenceDataP";
 
-export default function App() {
+function App() {
   const [conferenceData, setConferenceData] = useState<ConferenceDataP>({});
 
-  function addStagedResponseOption() {
+  function addResponseOption(type: string) {
     const newRO = {
       key: uuidv4(),
-      label: `Staged Response Option ${Date.now()}`,
+      label: `Response Option ${Date.now()}`,
     };
     setConferenceData((prev) => ({
       ...prev,
-      stagedResponseOptions: [
-        ...(conferenceData.stagedResponseOptions || []),
-        newRO,
-      ],
+      [type]: [...(conferenceData[type] || []), newRO],
     }));
   }
 
-  function addPendingResponseOption() {
-    const newRO = {
-      key: uuidv4(),
-      label: `Pending Response Option ${Date.now()}`,
-    };
+  function deleteResponseOption(type: string, optionId: string) {
     setConferenceData((prev) => ({
       ...prev,
-      pendingResponseOptions: [
-        ...(conferenceData.pendingResponseOptions || []),
-        newRO,
-      ],
-    }));
-  }
-
-  function deleteStagedOptionHandler(optionId: string) {
-    setConferenceData((prev) => ({
-      ...prev,
-      stagedResponseOptions: (prev.stagedResponseOptions || []).filter(
-        (ro) => ro.key !== optionId,
-      ),
-    }));
-  }
-
-  function deletePendingOptionHandler(optionId: string) {
-    setConferenceData((prev) => ({
-      ...prev,
-      pendingResponseOptions: (prev.pendingResponseOptions || []).filter(
-        (ro) => ro.key !== optionId,
-      ),
+      [type]: (prev[type] || []).filter((ro) => ro.key !== optionId),
     }));
   }
 
@@ -59,7 +31,7 @@ export default function App() {
     setConferenceData({});
   }
 
-  function clearResponseData(type: string) {
+  function clearResponseOptionData(type: string) {
     setConferenceData((prev) => ({
       ...prev,
       [type]: [],
@@ -74,22 +46,23 @@ export default function App() {
           <i className="fa fa-trash fa-xl" aria-hidden="true" />
         </button>
       </div>
+
       <ResponseOptionManagement
         label="Staged Response Options"
         id="stagedResponseOptions"
-        clearResponseOptionData={clearResponseData}
-        addResponseOption={addStagedResponseOption}
+        clearResponseOptionData={clearResponseOptionData}
+        addResponseOption={addResponseOption}
+        deleteResponseOption={deleteResponseOption}
         responseOptions={conferenceData.stagedResponseOptions}
-        deleteResponseOption={deleteStagedOptionHandler}
       />
 
       <ResponseOptionManagement
         label="Pending Response Options"
         id="pendingResponseOptions"
-        clearResponseOptionData={clearResponseData}
-        addResponseOption={addPendingResponseOption}
+        clearResponseOptionData={clearResponseOptionData}
+        addResponseOption={addResponseOption}
+        deleteResponseOption={deleteResponseOption}
         responseOptions={conferenceData.pendingResponseOptions}
-        deleteResponseOption={deletePendingOptionHandler}
       />
 
       <h3>Debug Conference Data</h3>
@@ -97,3 +70,5 @@ export default function App() {
     </main>
   );
 }
+
+export default App;

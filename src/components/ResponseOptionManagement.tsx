@@ -26,7 +26,7 @@ function ResponseOptionManagement({
           <button onClick={() => clearResponseOptionData(id)}>
             <i className="fa fa-trash fa-xl" aria-hidden="true" />
           </button>
-          <button onClick={() => addResponseOption()}>
+          <button onClick={() => addResponseOption(id)}>
             <i className="fa fa-plus fa-xl" aria-hidden="true" />
           </button>
         </div>
@@ -40,7 +40,7 @@ function ResponseOptionManagement({
                 key={option.key}
                 id={option.key}
                 label={option.label}
-                deleteHandler={deleteResponseOption}
+                deleteHandler={() => deleteResponseOption(id, option.key)}
               />
             );
           })}

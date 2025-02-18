@@ -4,12 +4,12 @@ type ResponseOptionDisplay = {
   deleteHandler: Function;
 };
 
-function Option({ id, label, deleteHandler }: ResponseOptionDisplay) {
+function Option({ label, deleteHandler }: ResponseOptionDisplay) {
   return (
     <li className="response-option">
       <p>{label}</p>
       <div>
-        <button onClick={() => deleteHandler(id)}>
+        <button onClick={() => deleteHandler()}>
           <i className="fa fa-times fa-lg" aria-hidden="true" />
         </button>
       </div>
