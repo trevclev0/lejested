@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import ResponseOptionManagement from "./components/ResponseOptionManagement";
 import { ConferenceDataP } from "./types/ConferenceDataP";
+import { Grid2 as Grid, Container, Button, Typography } from "@mui/material";
 
 function App() {
   const [conferenceData, setConferenceData] = useState<ConferenceDataP>({});
@@ -39,13 +40,13 @@ function App() {
   }
 
   return (
-    <main>
-      <div>
-        <h1>Conference Data</h1>
-        <button onClick={clearConferencData}>
+    <Container component="main">
+      <Grid container spacing={2}>
+        <Typography component="h1">Conference Data</Typography>
+        <Button onClick={clearConferencData}>
           <i className="fa fa-trash fa-xl" aria-hidden="true" />
-        </button>
-      </div>
+        </Button>
+      </Grid>
 
       <ResponseOptionManagement
         label="Staged Response Options"
@@ -65,9 +66,9 @@ function App() {
         responseOptions={conferenceData.pendingResponseOptions}
       />
 
-      <h3>Debug Conference Data</h3>
+      <Typography component="h3">Debug Conference Data</Typography>
       <pre>{JSON.stringify(conferenceData, null, 2)}</pre>
-    </main>
+    </Container>
   );
 }
 

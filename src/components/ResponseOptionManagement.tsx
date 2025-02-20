@@ -1,3 +1,4 @@
+import { Button, ButtonGroup, List, Typography } from "@mui/material";
 import { ResponseOption } from "../types/ResponseOption";
 import Option from "./Option";
 
@@ -20,19 +21,16 @@ function ResponseOptionManagement({
 }: ResponseOptionManagementProps) {
   return (
     <>
-      <div>
-        <h2>{label}</h2>
-        <div>
-          <button onClick={() => clearResponseOptionData(id)}>
-            <i className="fa fa-trash fa-xl" aria-hidden="true" />
-          </button>
-          <button onClick={() => addResponseOption(id)}>
-            <i className="fa fa-plus fa-xl" aria-hidden="true" />
-          </button>
-        </div>
-      </div>
-
-      <ul>
+      <Typography component="h2">{label}</Typography>
+      <ButtonGroup>
+        <Button onClick={() => clearResponseOptionData(id)}>
+          <i className="fa fa-trash fa-xl" aria-hidden="true" />
+        </Button>
+        <Button onClick={() => addResponseOption(id)}>
+          <i className="fa fa-plus fa-xl" aria-hidden="true" />
+        </Button>
+      </ButtonGroup>
+      <List>
         {responseOptions &&
           responseOptions.map((option) => {
             return (
@@ -44,7 +42,7 @@ function ResponseOptionManagement({
               />
             );
           })}
-      </ul>
+      </List>
     </>
   );
 }

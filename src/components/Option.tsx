@@ -1,3 +1,5 @@
+import { Button, ListItem, Typography } from "@mui/material";
+
 type ResponseOptionDisplay = {
   id: string;
   label: string;
@@ -6,14 +8,14 @@ type ResponseOptionDisplay = {
 
 function Option({ label, deleteHandler }: ResponseOptionDisplay) {
   return (
-    <li className="response-option">
-      <p>{label}</p>
+    <ListItem className="response-option">
+      <Typography component="p">{label}</Typography>
       <div>
-        <button onClick={() => deleteHandler()}>
+        <Button onClick={() => deleteHandler()}>
           <i className="fa fa-times fa-lg" aria-hidden="true" />
-        </button>
+        </Button>
       </div>
-    </li>
+    </ListItem>
   );
 }
 
