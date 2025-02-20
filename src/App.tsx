@@ -1,12 +1,13 @@
 import "./App.css";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import ResponseOptionManagement from "./components/ResponseOptionManagement";
 import { ConferenceDataP } from "./types/ConferenceDataP";
-import { Grid2 as Grid, Container, Button, Typography } from "@mui/material";
-import ClearAllIcon from "@mui/icons-material/ClearAll";
+import { Container } from "@mui/material";
+import ConferenceDataManagement from "./components/ConferenceDataManagement";
+import ConferenceDataVerbose from "./components/ConferenceDataVerbose";
 
 function App() {
   const [conferenceData, setConferenceData] = useState<ConferenceDataP>({});
@@ -29,7 +30,7 @@ function App() {
     }));
   }
 
-  function clearConferencData() {
+  function clearConferenceData() {
     setConferenceData({});
   }
 
@@ -42,12 +43,7 @@ function App() {
 
   return (
     <Container component="main">
-      <Grid container>
-        <Typography component="h1">Conference Data</Typography>
-        <Button onClick={clearConferencData}>
-          <ClearAllIcon htmlColor="white" />
-        </Button>
-      </Grid>
+      <ConferenceDataManagement clearConferenceData={clearConferenceData} />
 
       <ResponseOptionManagement
         label="Staged Response Options"
@@ -67,8 +63,7 @@ function App() {
         responseOptions={conferenceData.pendingResponseOptions}
       />
 
-      <Typography component="h3">Debug Conference Data</Typography>
-      <pre>{JSON.stringify(conferenceData, null, 2)}</pre>
+      <ConferenceDataVerbose conferenceData={conferenceData} />
     </Container>
   );
 }
