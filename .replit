@@ -1,6 +1,12 @@
-run = "npm run dev"
+run = "yarn dev"
 modules = ["nodejs-20"]
-hidden = [".config", "tsconfig.json", "tsconfig.node.json", "vite.config.js", ".gitignore"]
+hidden = [
+  ".config",
+  "tsconfig.json",
+  "tsconfig.node.json",
+  "vite.config.js",
+  ".gitignore",
+]
 entrypoint = "src/App.tsx"
 
 [nix]
@@ -11,7 +17,7 @@ language = "nodejs"
 
 [deployment]
 deploymentTarget = "static"
-build = ["npm", "run", "build"]
+build = ["yarn", "build"]
 publicDir = "dist"
 
 [[ports]]
