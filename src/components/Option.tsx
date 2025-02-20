@@ -1,4 +1,5 @@
-import { Button, ListItem, Typography } from "@mui/material";
+import { Button, ListItem, ListItemText } from "@mui/material";
+import ClearIcon from "@mui/icons-material/Clear";
 
 type ResponseOptionDisplay = {
   id: string;
@@ -9,12 +10,10 @@ type ResponseOptionDisplay = {
 function Option({ label, deleteHandler }: ResponseOptionDisplay) {
   return (
     <ListItem className="response-option">
-      <Typography component="p">{label}</Typography>
-      <div>
-        <Button onClick={() => deleteHandler()}>
-          <i className="fa fa-times fa-lg" aria-hidden="true" />
-        </Button>
-      </div>
+      <ListItemText>{label}</ListItemText>
+      <Button onClick={() => deleteHandler()}>
+        <ClearIcon htmlColor="white" />
+      </Button>
     </ListItem>
   );
 }

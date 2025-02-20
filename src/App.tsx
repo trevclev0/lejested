@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import ResponseOptionManagement from "./components/ResponseOptionManagement";
 import { ConferenceDataP } from "./types/ConferenceDataP";
 import { Grid2 as Grid, Container, Button, Typography } from "@mui/material";
+import ClearAllIcon from "@mui/icons-material/ClearAll";
 
 function App() {
   const [conferenceData, setConferenceData] = useState<ConferenceDataP>({});
@@ -41,10 +42,10 @@ function App() {
 
   return (
     <Container component="main">
-      <Grid container spacing={2}>
+      <Grid container>
         <Typography component="h1">Conference Data</Typography>
         <Button onClick={clearConferencData}>
-          <i className="fa fa-trash fa-xl" aria-hidden="true" />
+          <ClearAllIcon htmlColor="white" />
         </Button>
       </Grid>
 

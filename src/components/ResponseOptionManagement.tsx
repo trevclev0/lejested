@@ -1,4 +1,6 @@
-import { Button, ButtonGroup, List, Typography } from "@mui/material";
+import ClearAllIcon from "@mui/icons-material/ClearAll";
+import AddIcon from "@mui/icons-material/Add";
+import { Box, Button, List, Typography, Grid2 as Grid } from "@mui/material";
 import { ResponseOption } from "../types/ResponseOption";
 import Option from "./Option";
 
@@ -20,16 +22,16 @@ function ResponseOptionManagement({
   deleteResponseOption,
 }: ResponseOptionManagementProps) {
   return (
-    <>
+    <Grid>
       <Typography component="h2">{label}</Typography>
-      <ButtonGroup>
+      <Box>
         <Button onClick={() => clearResponseOptionData(id)}>
-          <i className="fa fa-trash fa-xl" aria-hidden="true" />
+          <ClearAllIcon htmlColor="white" />
         </Button>
         <Button onClick={() => addResponseOption(id)}>
-          <i className="fa fa-plus fa-xl" aria-hidden="true" />
+          <AddIcon htmlColor="white" />
         </Button>
-      </ButtonGroup>
+      </Box>
       <List>
         {responseOptions &&
           responseOptions.map((option) => {
@@ -43,7 +45,7 @@ function ResponseOptionManagement({
             );
           })}
       </List>
-    </>
+    </Grid>
   );
 }
 
