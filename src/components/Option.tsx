@@ -7,13 +7,25 @@ type ResponseOptionDisplay = {
   deleteHandler: Function;
 };
 
+type OptionButtonP = {
+  deleteHandler: Function;
+};
+
+function OptionButton({ deleteHandler }: OptionButtonP) {
+  return (
+    <Button onClick={() => deleteHandler()}>
+      <ClearIcon htmlColor="white" />
+    </Button>
+  );
+}
+
 function Option({ label, deleteHandler }: ResponseOptionDisplay) {
   return (
-    <ListItem className="response-option">
+    <ListItem
+      className="response-option"
+      secondaryAction={<OptionButton deleteHandler={deleteHandler} />}
+    >
       <ListItemText>{label}</ListItemText>
-      <Button onClick={() => deleteHandler()}>
-        <ClearIcon htmlColor="white" />
-      </Button>
     </ListItem>
   );
 }

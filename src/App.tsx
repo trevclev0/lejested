@@ -42,7 +42,7 @@ function App() {
   }
 
   return (
-    <Container component="main">
+    <Container component="main" sx={{ minHeight: "100vh", width: "100vw" }}>
       <ConferenceDataManagement clearConferenceData={clearConferenceData} />
 
       <ResponseOptionManagement

@@ -23,14 +23,14 @@ function ResponseOptionManagement({
 }: ResponseOptionManagementProps) {
   return (
     <Grid>
-      <Grid container>
-        <Typography component="h2">{label}</Typography>
+      <Grid container alignItems="center" justifyContent="space-between">
+        <Typography variant="h3">{label}</Typography>
         <Box>
           <Button onClick={() => clearResponseOptionData(id)}>
-            <ClearAllIcon htmlColor="white" />
+            <ClearAllIcon htmlColor="white" fontSize="large" />
           </Button>
           <Button onClick={() => addResponseOption(id)}>
-            <AddIcon htmlColor="white" />
+            <AddIcon htmlColor="white" fontSize="large" />
           </Button>
         </Box>
       </Grid>

@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Grid2 as Grid, Typography } from "@mui/material";
 import { ConferenceDataP } from "../types/ConferenceDataP";
 
 type ConferenceDataVerboseProps = {
@@ -7,10 +7,10 @@ type ConferenceDataVerboseProps = {
 
 function ConferenceDataVerbose({ conferenceData }: ConferenceDataVerboseProps) {
   return (
-    <>
-      <Typography component="h3">Debug Conference Data</Typography>
+    <Grid>
+      <Typography variant="h4">Debug Conference Data</Typography>
       <pre>{JSON.stringify(conferenceData, null, 2)}</pre>
-    </>
+    </Grid>
   );
 }
 
