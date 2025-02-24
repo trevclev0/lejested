@@ -1,12 +1,7 @@
-body {
-  background-color: steelblue;
-  color: #d5d5d5;
-}
-
 li:nth-of-type(2n + 1) {
-  background-color: rgb(86, 103, 141, 0.5);
+    background-color: rgb(86, 103, 141, 0.5);
 }
 
 li:nth-of-type(2n) {
-  background-color: rgb(126, 151, 204, 0.5);
+    background-color: rgb(126, 151, 204, 0.5);
 }

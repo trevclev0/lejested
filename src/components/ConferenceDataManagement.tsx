@@ -3,20 +3,20 @@ import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import { MouseEventHandler } from "react";
 
 type ConferenceDataManagementProps = {
-  clearConferenceData: MouseEventHandler;
+    clearConferenceData: MouseEventHandler;
 };
 
 function ConferenceDataManagement({
-  clearConferenceData,
+    clearConferenceData,
 }: ConferenceDataManagementProps) {
-  return (
-    <Grid container alignItems="center" justifyContent="space-between">
-      <Typography variant="h2">Conference Data</Typography>
-      <Button onClick={clearConferenceData}>
-        <DeleteSweepIcon fontSize="large" htmlColor="white" />
-      </Button>
-    </Grid>
-  );
+    return (
+        <Grid container alignItems="center" justifyContent="space-between">
+            <Typography variant="h2">Conference Data</Typography>
+            <Button onClick={clearConferenceData}>
+                <DeleteSweepIcon fontSize="large" htmlColor="white" />
+            </Button>
+        </Grid>
+    );
 }
 
 export default ConferenceDataManagement;
