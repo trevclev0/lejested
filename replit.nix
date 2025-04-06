@@ -1,5 +1,6 @@
 {pkgs}: {
   deps = [
+    pkgs.asdf-vm
     pkgs.vim
     pkgs.zsh-powerlevel10k
     pkgs.fira-code-nerdfont
